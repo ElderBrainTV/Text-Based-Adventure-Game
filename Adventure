@@ -1,0 +1,341 @@
+import random
+import string
+
+def charactercreation():
+
+    global strx, dexx, conx, intx, wisx, chax, strmodif, dexmodif, conmodif, intmodif, wismodif, chamodif
+    global cname, cgender, crace, cclass, armorchoice, weaponchoice, armor, ac, hitpoints
+    for x in range ( 1 ) :
+        STR = [random.randint ( 1, 6 ) for _ in range ( 4 )]
+        DEX = [random.randint ( 1, 6 ) for _ in range ( 4 )]
+        CON = [random.randint ( 1, 6 ) for _ in range ( 4 )]
+        INT = [random.randint ( 1, 6 ) for _ in range ( 4 )]
+        WIS = [random.randint ( 1, 6 ) for _ in range ( 4 )]
+        CHA = [random.randint ( 1, 6 ) for _ in range ( 4 )]
+        strx = sum ( STR ) - min ( STR )
+        dexx = sum ( DEX ) - min ( DEX )
+        conx = sum ( CON ) - min ( CON )
+        intx = sum ( INT ) - min ( INT )
+        wisx = sum ( WIS ) - min ( WIS )
+        chax = sum ( CHA ) - min ( CHA )
+
+
+    name = input("What is your name?\n")
+    cname = string.capwords(name)
+    gender = input("Are you a Male or Female\n")
+    cgender = string.capwords(gender)
+    choosingrace = 1
+    while choosingrace >= 1 :
+        characterrace = input ( "Choose a race:\nOrc\nHuman\nElf\nHalfling\nMind Flayer\nNord\nHalf Elf"
+                                "\nHalf Orc\nDwarf\n" )
+        crace = string.capwords (characterrace)
+        if crace == "Orc" or crace == "Human" or crace == "Elf" or crace == "Halfling" :
+            choosingrace = 0
+        elif crace == "Mind Flayer" or crace == "Nord" or crace == "Half Elf" :
+            choosingrace = 0
+        elif crace == "Half Orc" or crace == "Dwarf" :
+            choosingrace = 0
+        else :
+            print ( "Try again" )
+            choosingrace += 1
+    choosingclass = 1
+    while choosingclass >= 1 :
+        characterclass = input ( "Choose a class:\nRogue\nFighter\nWizard\nSorcerer\nMonk\nBarbarian\n" )
+        cclass = string.capwords(characterclass)
+        if cclass == "Rogue" or cclass == "Fighter" or cclass == "Wizard" or cclass == "Sorcerer" :
+            choosingclass = 0
+        elif cclass == "Monk" or cclass == "Barbarian" :
+            choosingclass = 0
+        else :
+            print ( "Try Again" )
+    if cclass == "Rogue":
+        armorchoice = "Leather Armor"
+    elif cclass == "Fighter":
+        armor = input("Choose your armor.\nChain Mail\nLeather Armor\n")
+        armorchoice = string.capwords(armor)
+    else:
+        armorchoice = "None"
+
+
+
+    if crace == "Orc" :
+        strx += 2
+        conx += 1
+    elif crace == "Human" :
+        strx += 1
+        dexx += 1
+        conx += 1
+        intx += 1
+        wisx += 1
+        chax += 1
+    elif crace == "Elf" :
+        intx += 2
+        chax += 1
+    elif crace == "Halfling" :
+        dexx += 2
+        wisx += 1
+    elif crace == "Mind flayer" :
+        intx += 2
+        wisx += 1
+    elif crace == "Nord" :
+        strx += 2
+        conx += 1
+    elif crace == "Half-elf" :
+        dexx += 2
+        chax += 1
+    elif crace == "Half-orc" :
+        strx += 2
+        conx += 1
+    elif crace == "Dwarf" :
+        strx += 2
+        conx += 1
+    # Skill Modifiers
+    # Strength
+    if strx == 1 :
+        strmodif = -5
+    elif strx == 2 or strx == 3 :
+        strmodif = -4
+    elif strx == 4 or strx == 5 :
+        strmodif = -3
+    elif strx == 6 or strx == 7 :
+        strmodif = -2
+    elif strx == 8 or strx == 9 :
+        strmodif = -1
+    elif strx == 10 or strx == 11 :
+        strmodif = 0
+    elif strx == 12 or strx == 13 :
+        strmodif = 1
+    elif strx == 14 or strx == 15 :
+        strmodif = 2
+    elif strx == 16 or strx == 17 :
+        strmodif = 3
+    elif strx == 18 or strx == 19 :
+        strmodif = 4
+    elif strx == 20 or strx == 21 :
+        strmodif = 5
+    # Dexterity
+    if dexx == 1 :
+        dexmodif = -5
+    elif dexx == 2 or dexx == 3 :
+        dexmodif = -4
+    elif dexx == 4 or dexx == 5 :
+        dexmodif = -3
+    elif dexx == 6 or dexx == 7 :
+        dexmodif = -2
+    elif dexx == 8 or dexx == 9 :
+        dexmodif = -1
+    elif dexx == 10 or dexx == 11 :
+        dexmodif = 0
+    elif dexx == 12 or dexx == 13 :
+        dexmodif = 1
+    elif dexx == 14 or dexx == 15 :
+        dexmodif = 2
+    elif dexx == 16 or dexx == 17 :
+        dexmodif = 3
+    elif dexx == 18 or dexx == 19 :
+        dexmodif = 4
+    elif dexx == 20 or dexx == 21 :
+        dexmodif = 5
+    # Constitution
+    if conx == 1 :
+        conmodif = -5
+    elif conx == 2 or conx == 3 :
+        conmodif = -4
+    elif conx == 4 or conx == 5 :
+        conmodif = -3
+    elif conx == 6 or conx == 7 :
+        conmodif = -2
+    elif conx == 8 or conx == 9 :
+        conmodif = -1
+    elif conx == 10 or conx == 11 :
+        conmodif = 0
+    elif conx == 12 or conx == 13 :
+        conmodif = 1
+    elif conx == 14 or conx == 15 :
+        conmodif = 2
+    elif conx == 16 or conx == 17 :
+        conmodif = 3
+    elif conx == 18 or conx == 19 :
+        conmodif = 4
+    elif conx == 20 or conx == 21 :
+        conmodif = 5
+    # Intelligence
+    if intx == 1 :
+        intmodif = -5
+    elif intx == 2 or intx == 3 :
+        intmodif = -4
+    elif intx == 4 or intx == 5 :
+        intmodif = -3
+    elif intx == 6 or intx == 7 :
+        intmodif = -2
+    elif intx == 8 or intx == 9 :
+        intmodif = -1
+    elif intx == 10 or intx == 11 :
+        intmodif = 0
+    elif intx == 12 or intx == 13 :
+        intmodif = 1
+    elif intx == 14 or intx == 15 :
+        intmodif = 2
+    elif intx == 16 or intx == 17 :
+        intmodif = 3
+    elif intx == 18 or intx == 19 :
+        intmodif = 4
+    elif intx == 20 or intx == 21 :
+        intmodif = 5
+    # Wisdom
+    if wisx == 1 :
+        wismodif = -5
+    elif wisx == 2 or wisx == 3 :
+        wismodif = -4
+    elif wisx == 4 or wisx == 5 :
+        wismodif = -3
+    elif wisx == 6 or wisx == 7 :
+        wismodif = -2
+    elif wisx == 8 or wisx == 9 :
+        wismodif = -1
+    elif wisx == 10 or wisx == 11 :
+        wismodif = 0
+    elif wisx == 12 or wisx == 13 :
+        wismodif = 1
+    elif wisx == 14 or wisx == 15 :
+        wismodif = 2
+    elif wisx == 16 or wisx == 17 :
+        wismodif = 3
+    elif wisx == 18 or wisx == 19 :
+        wismodif = 4
+    elif wisx == 20 or wisx == 21 :
+        wismodif = 5
+    # Charisma
+    if chax == 1 :
+        chamodif = -5
+    elif chax == 2 or chax == 3 :
+        chamodif = -4
+    elif chax == 4 or chax == 5 :
+        chamodif = -3
+    elif chax == 6 or chax == 7 :
+        chamodif = -2
+    elif chax == 8 or chax == 9 :
+        chamodif = -1
+    elif chax == 10 or chax == 11 :
+        chamodif = 0
+    elif chax == 12 or chax == 13 :
+        chamodif = 1
+    elif chax == 14 or chax == 15 :
+        chamodif = 2
+    elif chax == 16 or chax == 17 :
+        chamodif = 3
+    elif chax == 18 or chax == 19 :
+        chamodif = 4
+    elif chax == 20 or chax == 21 :
+        chamodif = 5
+
+
+    if armorchoice == "Leather Armor" :
+        ac = 11 + dexmodif
+    elif armorchoice == "Padded Armor" :
+        ac = 11 + dexmodif
+    elif armorchoice == "Studded Leather Armor" :
+        ac = 12 + dexmodif
+    elif armorchoice == "Breastplate" :
+        if dexmodif >= 2 :
+            dexmodif = 2
+            ac = 14 + dexmodif
+        else :
+            ac = 14 + dexmodif
+    elif armorchoice == "Chain Shirt" :
+        if dexmodif >= 2 :
+            dexmodif = 2
+            ac = 13 + dexmodif
+        else :
+            ac = 13 + dexmodif
+    elif armorchoice == "Half Plate" :
+        if dexmodif >= 2 :
+            dexmodif = 2
+            ac = 15 + dexmodif
+        else :
+            ac = 15 + dexmodif
+    elif armorchoice == "Hide" :
+        if dexmodif >= 2 :
+            dexmodif = 2
+            ac = 12 + dexmodif
+        else :
+            ac = 12 + dexmodif
+    elif armorchoice == "Scale Mail" :
+        if dexmodif >= 2 :
+            dexmodif = 2
+            ac = 14 + dexmodif
+        else :
+            ac = 14 + dexmodif
+    elif armorchoice == "Chain Mail" :
+        ac = 16
+    elif armorchoice == "Plate" :
+        ac = 18
+    elif armorchoice == "Ring Mail" :
+        ac = 14
+    elif armorchoice == "Splint" :
+        ac = 17
+    else:
+        ac = 10 + dexmodif
+
+    if cclass == "Rogue":
+        hitpoints = conmodif + random.randint(1,9)
+    elif cclass == "Monk":
+        hitpoints = conmodif + random.randint(1,9)
+    elif cclass == "Fighter":
+        hitpoints = conmodif + random.randint(1,11)
+    elif cclass == "Barbarian":
+        hitpoints = conmodif + random.randint(1,13)
+    elif cclass == "Sorcerer":
+        hitpoints = conmodif + random.randint(1,7)
+    elif cclass == "Wizard":
+        hitpoints = conmodif + random.randint(1,7)
+
+    """
+    choosingweapon = 1
+    while choosingweapon >= 1 :
+        if cclass == "Rogue":
+            weapon = input ( "Choose your starting weapon:\nShort Sword\n2 Daggers\nShort Bow" )
+            weaponchoice = string.capwords(weapon)
+        if cclass == "Fighter":
+            pass
+    """
+    print ( "Stats:\nSTR: " + str ( strx ) + "\nDEX: " + str ( dexx ) + "\nCON: " + str (
+        conx ) + "\nINT: " + str ( intx ) + "\nWIS: " + str ( wisx ) + "\nCHA: " + str ( chax ) )
+
+
+def showstats():
+    print ( "\nStats:\nSTR: " + str ( strx ) + "\nDEX: " + str ( dexx ) + "\nCON: " + str (
+        conx ) + "\nINT: " + str ( intx ) + "\nWIS: " + str ( wisx ) + "\nCHA: " + str ( chax ) )
+
+def charactercard():
+    print("Name: "+cname+"\nGender: "+cgender+"\nRace: "+crace+"\nClass: "+cclass+"\nArmor Class: "+str(ac)+"\nHit Points: "+str(hitpoints))
+    showstats ()
+    print("\nEquipment:\nArmor: "+armorchoice)
+
+
+
+playing = True
+while playing:
+    start = input("Type \"Start\" To Play!\n")
+    cstart = string.capwords(start)
+    if cstart == "Start":
+        print ( "First, you need to build your character." )
+        building_character = True
+        while building_character:
+            charactercreation()
+            done = input("Are you satisfied with your character?\n")
+            cdone = string.capwords(done)
+            if cdone == "Yes":
+                building_character = False
+        adventuring = True
+        while adventuring:
+            idle = input("What do you want to do?\n\n| Walk | Look | Use | Take | Speak | View Character Card | Inventory |\n")
+            cidle = string.capwords(idle)
+            if cidle == "View Character Card":
+                charactercard()
+            else:
+                print("Slow your horses..")
+
+
+    else:
+        print("What was that?")
